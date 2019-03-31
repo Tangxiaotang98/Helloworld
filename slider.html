@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Swiper demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<!-- Link Swiper's CSS -->
+		<link rel="stylesheet" href="css/swiper.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<!-- Demo styles -->
+		<style>
+			body {
+				background: #eee;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.swiper-wrapper {
+				transform: translated3d(0px, 0px, 0px);
+			}
+			
+			.swiper-container {
+				width: 100%;
+				height: 300px;
+			}
+			
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			
+			
+					
+			.hot-product,
+			.new-product {
+				margin-bottom: 20px;
+			}
+			
+			.hot-product .hot-product-title,
+			.new-product .new-product-title {
+				margin-bottom: 30px;
+				border-bottom: 1px solid #CCCCCC;
+				position: relative;
+			}
+			
+			.hot-product .hot-product-title h3,
+			.new-product .new-product-title h3 {
+				color: #444444;
+				font-size: 20px;
+				position: relative;
+				margin-bottom: 0px;
+				padding: 0 0 15px;
+			}
+			
+			.hot-product .hot-product-title h3:before,
+			.new-product .new-product-title h3:before {
+				content: '';
+				width: 70px;
+				height: 2px;
+				background-color: blue;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			
+			.hot-product .container .row .hot-product-banner .owl-item,
+			.new-product .container .row .new-product-banner .owl-item {
+				float: left;
+				margin: 10px;
+			}
+			.hot-product .container .row .hot-product-banner .owl-item{
+				position: relative;
+			}
+			.hot-product .container .row .hot-product-banner .owl-item .hot-product-banner-content{
+				position:absolute;
+				top:50px;
+				left: 25px;
+			}
+			.new-product .container .row .new-product-banner .owl-item {
+				width: 270px;
+				border: 1px solid darkgray;
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item img {
+				padding-left: 10px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content {
+				padding-left: 8px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .fa.fa-star {
+				color: #3785e9ed;
+				font-size: 20px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .fa.fa-star-o {
+				font-size: 20px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .product-money {
+				color: #f70726fa;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .buyButton button{
+				display: inline-block;
+				width: 100px;
+				line-height: 35px;
+				margin-bottom: 10px;
+				border: 1px solid darkgray;
+				margin-left: 70px;
+				border-radius: 100px;
+				background-color: #FFFFFF;
+				cursor: pointer;
+				outline: none;
+			}
+           .hot-product .hot-product-title .arrow-left,
+           .hot-product .hot-product-title .arrow-right,
+           .new-product .new-product-title .arrow-left,
+           .new-product .new-product-title .arrow-right{
+                 position: absolute;
+                 top: 10px;
+                 display: inline-block;
+                 width: 25px;
+                 line-height: 25px;
+                 border-radius: 100%;
+                 background-color: lightgray;
+                 text-align: center;
+                 cursor: pointer;
+                 font-size: 18px;
+                 color:white;
+            }
+            .hot-product .hot-product-title .arrow-left,
+            .new-product .new-product-title .arrow-left{
+            	left: 1100px;
+            }
+           .hot-product .hot-product-title .arrow-right,
+           .new-product .new-product-title .arrow-right{
+               left:1130px;
+           }
+
+		</style>
+	</head>
+
+	<body>
+		<div class="hot-product">
+			<div class="container">
+				<div class="row">
+					<div class="hot-product-title">
+						<h3>热卖商品</h3>
+						<span class="arrow-left"><</span>
+						<span class="arrow-right">></span>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="hot-product-banner">
+						<!-- Swiper -->
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="owl-item">
+										<img src="img/img/banner1.png" alt="" />
+										<div class="hot-product-banner-content">
+											<h3>游戏机</h3>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="owl-item">
+										<img src="img/img/banner2.png" alt="" />
+										<div class="hot-product-banner-content">
+											<h3>耳机</h3>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="owl-item">
+										<img src="img/img/banner3.png" alt="" />
+										<div class="hot-product-banner-content">
+											<h3>相机</h3>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="owl-item">
+										<img src="img/img/banner4.png" alt="" />
+										<div class="hot-product-banner-content">
+											<h3>笔记本电脑</h3>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="owl-item">
+										<img src="img/img/banner2.png" alt="" />
+										<div class="hot-product-banner-content">
+											<h3>笔记本电脑</h3>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="owl-item">
+										<img src="img/img/banner1.png" alt="" />
+										<div class="hot-product-banner-content">
+											<h3>笔记本电脑</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<!--<div class="swiper-pagination"></div>-->
+			<!-- Add Arrows -->
+		</div>
+		<!-- Swiper JS -->
+		<script src="js/swiper.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			/*var appendNumber = 4;
+																var prependNumber = 1;*/
+			var swiper = new Swiper('.swiper-container', {
+				slidesPerView: 4,
+				/*centeredSlides: true,*/
+				spaceBetween: 10,
+				/*pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},*/
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		</script>
+	</body>
+
+</html>

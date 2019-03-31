@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/plugins.css"/>
+		<title></title>
+		<style type="text/css">
+			.header-top {
+				background-color: #F7F7F7;
+			}
+			ul,
+			li {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			a,
+			a:active,
+			a:link,
+			a:focus,
+			a:hover a:after {
+				text-decoration: none;
+				color: #393a47;
+			}
+			
+			.top-right>ul>li {
+				display: inline-block;
+				margin-right: 20px;
+				padding-left: 20px;
+				position: relative;
+			}
+			
+			.top-right>ul>li>a {
+				color: #393a47;
+				line-height: 49px;
+				text-decoration: none;
+				display: block;
+				outline: none;
+			}
+			
+			.top-right .fa.fa-angle-down {
+				padding-left: 6px;
+			}
+			
+			.top-right .dropdown-links {
+				z-index: 1;
+				display: block;
+				text-align: center;
+				position: absolute;
+				background-color: #FFFFFF;
+				box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+				min-width: 120px;
+				overflow: hidden;
+				top: 100%;
+				line-height: 2.5;
+				max-height: 0px;
+				transition: all .5s;
+				right: 0;
+			}
+			
+			.top-right .dropdown-links li:nth-child(n+1):nth-child(-n+3):after {
+				content: '';
+				text-align: center;
+				display: block;
+				border-bottom: 1px solid #c3c8d0;
+				width: 50%;
+				position: relative;
+				margin: auto;
+			}
+			
+			.top-right .dropdown-links li:hover a {
+				font-size: 15px;
+				color: #2971f5;
+			}
+			
+			.top-right .dropdown-links.active {
+				max-height: 150px;
+			}
+			/**********************************************
+			 * head中间部分
+			 ***********************************************/
+			
+			.header-middle {
+				padding: 40px 0;
+			}
+			
+			.header-middle .search-bar form {
+				position: relative;
+				/*用来定位button*/
+				width: 600px;
+			}
+			
+			.header-middle .search-bar form input {
+				width: 100%;
+				height: 50px;
+				padding: 0 70px 0 20px;
+				border: 1px solid #E7E7E7;
+				outline: none;
+			}
+			
+			.header-middle .search-bar form button {
+				position: absolute;
+				right: 0;
+				height: 100%;
+				top: 0;
+				border: 0;
+				color: #FFFFFF;
+				font-size: 22px;
+				width: 50px;
+				background-color: #3245ee;
+			}
+			
+			.header-middle .search-bar form button:focus {
+				outline: none;
+			}
+			
+			.header-middle .search-bar form button:hover {
+				background-color: #1673e1;
+			}
+			
+			.header-middle .shop-car {
+				position: relative;
+				margin-left: 0px;
+				padding-right: 40px;
+				top: 12px;
+			}
+			
+			.header-middle .shop-car a {
+				font-size: 14px;
+				font-weight: 300;
+				color: #444444;
+			}
+			
+			.header-middle .shop-car a i {
+				font-size: 32px;
+				margin-right: 10px;
+			}
+			
+			.header-middle .shop-car a:hover {
+				color: #3245ee;
+			}
+			
+			.header-middle .shop-car .shop-num {
+				position: absolute;
+				top: -6px;
+				left: 18px;
+				display: inline-block;
+				min-height: 22px;
+				min-width: 22px;
+				border-radius: 100%;
+				background-color: #e32727;
+				color: #FFFFFF;
+				font-size: 10px;
+				text-align: center;
+				line-height: 22px;
+				font-weight: 200;
+			}
+			/************product-list***************/
+			.product-list .container .row{
+				position: absolute;
+				width: 800px;
+				height: 600px;
+				box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+				border: 1px solid lightgray;
+				border-radius: 3px;
+				z-index: 100;
+				background: #FFFFFF;
+				left: -600px;
+				top:60px;
+				display: none;
+			}
+			.product-list .container .row .all{
+				height: 500px;
+				overflow-y: scroll;
+				padding-bottom: 20px;
+			}
+			.product-list .container .row .all .thread{
+				border-top: 1px solid lightgray;
+			    border-bottom: 1px solid lightgray;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				margin: 40px 40px 10px 40px;
+			}
+			.product-list .container .row .all .thread>span{
+				display: inline-block;
+				width: 120px;
+				font-size: 15px;
+				font-weight: bold;
+				text-align:center;
+			}
+			.product-list .container .row .all .thread .product-info{
+				width: 240px;
+				cursor: pointer;
+			}
+			.product-list .container .row .all .content{
+				margin-left: 40px;
+				position: relative;
+				border-bottom: 1px solid lightgray;
+				max-width: 90%;
+				cursor: pointer;
+			}
+			.product-list .container .row .all .content .image-area{
+				display: inline-block;
+				width: 120px;
+				height: 120px;
+				text-align: center;
+			}
+		   .product-list .container .row .all .content .des-area{
+		   	  display: inline-block;
+		   	  text-align: center;
+		   	  width: 240px;
+		   	  line-height: 120px;
+		   	  position: absolute;
+		   	}
+		   	.product-list .container .row .all .content .des-area span{
+		   		margin-top: 30px;
+		   	}
+		   .product-list .container .row .all .content .price-area{
+		   	  display: inline-block;
+		   	  text-align: center;
+		   	  width: 120px;
+		   	  line-height: 120px;
+		   	  position: absolute;
+		   	  left: 360px;
+		   }
+		   .product-list .container .row .all .content .number-area{
+		   	   display: inline-block;
+		   	   text-align: center;
+		   	   width: 120px;
+		   	   line-height: 120px;
+		   	   position:absolute;
+		   	   left: 500px;
+		   }
+		   .product-list .container .row .all .content .number-area input{
+		   	display: inline-block;
+		   	width: 60px;
+		   	line-height: 30px;
+		   	text-align: center;
+		   	outline: none;
+		   }
+		   .product-list .container .row .all .content .operate-area{
+		   	  display: inline-block;
+		   	  width: 60px;
+		   	  line-height: 120px;
+		   	  text-align: center;
+		   	  position: absolute;
+		   	  left:620px;
+		   }
+		   .product-list .container .row .all .content .operate-area .fa.fa-trash{
+		   	 visibility: hidden ;
+		   	 color: #000000;
+		   }
+		   .product-list .container .row .button-group{
+		   	margin-top: 20px;
+		   	margin-left: 450px;
+		   }
+		   .product-list .container .row .button-group .totalPrice{
+		   	  display: inline-block;
+		   	  width: 130px;
+		   	  line-height: 40px;
+		   	  text-align: center;
+		   	  border: none;
+		   	  background-color: #e43b3b;
+		   	  color: #FFFFFF;
+		   	  margin-right: 20px;
+		   	  font-size: 16px;
+		   	  outline: none;
+		   }
+		   .product-list .container .row .button-group .totalPrice:hover{
+		   	background: red;
+		   }
+		   .product-list .container .row .button-group .buy{
+		   	  display: inline-block;
+		   	  width: 130px;
+		   	  line-height: 40px;
+		   	  text-align: center;
+		   	  border: none;
+		   	  background-color: #c4c4c4;
+		   	  color: #584d4d;
+		   	  font-size: 16px;	 
+		   	  outline: none; 
+		   }
+		   .product-list .container .row .button-group .buy:hover{
+		   	background: #ada7a7;
+		   }
+			/****************************
+			 * header-bottom
+			 */
+			.header-bottom.stick{
+				position: fixed;
+				top: 0;
+				width: 100%;
+				padding-top: 6px;
+				background: #FFFFFF;
+				animation: fadeInDown .5s infinite;
+				animation-iteration-count: 1;
+				z-index:100;
+			}
+			@keyframes fadeInDown{
+				from{top:-66px};
+				to{top};
+			}
+			.header-bottom .categories-menu {
+				cursor: pointer;
+				position: relative;
+				background-color: #495fef;
+				padding-left: 49px;
+			}
+			
+			.header-bottom .categories-menu .categories-title h2 {
+				cursor: pointer;
+				font-size: 18px;
+				color: #ffffff;
+				padding: 2px;
+				display: inline-block;
+			}
+			
+			.header-bottom .categories-menu .categories-title .fa.fa-list {
+				margin-right: 15px;
+			}
+			
+			.header-bottom .categories-menu .categories-title .fa.fa-angle-down {
+				margin-left: 15px;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner {
+				z-index: 1;
+				padding: 8px 0 0;
+				background: #ffffff;
+				border: 1px solid #DDDDDD;
+				position: absolute;
+				width: 100%;
+				top: 100%;
+				left: 0;
+				transform-origin: 0 0 0;
+				transform: scaleY(0);
+				transition: .4s;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner.open {
+				transform: scaleY(1);
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner .category-menu-inner-sub {
+				position: absolute;
+				left: 120%;
+				width: 520px;
+				box-shadow: 1px 0 6px rgba(0, 0, 0, .3);
+				padding: 20px;
+				top: 0;
+				transition: all .1s ease-in-out;
+				visibility: hidden;
+				background-color: white;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner .category-menu-inner-sub.open {
+				visibility: visible;
+				left: 100%;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner .category-menu-inner-sub>li {
+				padding: 0 15px;
+				width: 33.33%;
+				float: left;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner .category-menu-inner-sub ul {
+				margin-top: 15px;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner .category-menu-inner-sub li {
+				margin-bottom: 10px;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner>ul>li {
+				padding: 2px 15px;
+				position: relative;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner>ul>li>a {
+				font-size: 15px;
+				color: :black;
+				line-height: 41px;
+				display: block;
+				outline: none;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner>ul>li:nth-child(n+1):nth-child(-n+8)>a {
+				content: "";
+				border-bottom: 1px solid #444444;
+			}
+			
+			.header-bottom .categories-menu .category-menu-inner>ul>li .fa.fa-angle-right {
+				margin-left: 100px;
+			}
+			/*****************
+			 * main-menu
+			 */
+			
+			.header-bottom .main-menu {
+				margin-top: 15px;
+			}
+			
+			.header-bottom .main-menu>ul>li {
+				display: inline-block;
+				position: static;
+			}
+			
+			.header-bottom .main-menu>ul>li>a {
+				color: #1e77d5;
+				display: block;
+				font-size: 14px;
+				font-weight: 500;
+				height: 45px;
+				line-height: 45px;
+				padding: 0 38px;
+				outline: none;
+			}
+			
+			.header-bottom .main-menu>ul>li>a:hover {
+				color: #19daef;
+			}
+			.header-bottom .main-menu .main-page-sub {
+				position: absolute;
+				background-color: #ffffff;
+				min-width: 220px;
+				padding: 30px 25px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+				transform-origin: 0 0 0;
+				transform: scaleY(0);
+				transition: .4s;
+				z-index: 1;
+			}
+			
+			.header-bottom .main-menu .main-page-sub li:hover a {
+				color: #5bceed;
+			}
+			
+			.header-bottom .main-menu .main-page-sub li:nth-child(n+1):nth-child(-n+2) {
+				margin-bottom: 10px;
+			}
+			
+			.header-bottom .main-menu .store-sub {
+				position: absolute;
+				min-width: 100%;
+				padding: 30px 20px;
+				left: 0;
+				background-color: white;
+				box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+				transform-origin: 0 0 0;
+				transform: scaleY(0);
+				z-index: 1;
+				transition: .4s;
+			}
+			
+			.header-bottom .main-menu .store-sub>li {
+				width: 30%;
+				float: left;
+			}
+			
+			.header-bottom .main-menu .store-sub>li a {
+				color: #555;
+				font-size: 13px;
+				line-height: 18px;
+				margin-bottom: 15px;
+				display: block;
+			}
+			
+			.header-bottom .main-menu .store-sub>li>a {
+				color: #444;
+				font-size: 17px;
+				line-height: 18px;
+				margin-bottom: 15px;
+				display: block;
+			}
+			
+			.header-bottom .main-menu .store-sub>li a:hover {
+				color: #5bceed;
+			}
+			/***************************
+			 * slider
+			 */
+			
+			.slider-area {
+				position: relative;
+				height: 500px;
+			}
+			
+			.slider-area .slider-one,
+			.slider-area .slider-two {
+				background-image: url(img/img/slider1.jpg);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 500px;
+				opacity: 1;
+				transition: all .5s ease-in-out;
+			}
+			
+			.slider-area .slider-two {
+				background-image: url(img/img/slider2.jpg);
+			}
+			
+			.slider-area .dots {
+				position: absolute;
+				width: 100%;
+				bottom: 6px;
+				text-align: center;
+			}
+			
+			.slider-area .dots .nav-dot {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				background: #DDDDDD;
+				border-radius: 50%;
+			}
+			
+			.slider-area .dots .nav-dot.active {
+				width: 40px;
+				background-color: blue;
+				border-radius: 24px;
+			}
+			
+			.ad-area {
+				padding: 45px;
+				text-align: center;
+			}
+			
+			.ad-area .ad-content {
+				background: blue;
+				color: white;
+				padding: 30px 0 30px 0;
+			}
+			/*********
+			 * 热卖商品
+			 */
+			
+			.hot-product,
+			.new-product {
+				margin-bottom: 20px;
+			}
+			
+			.hot-product .hot-product-title,
+			.new-product .new-product-title {
+				margin-bottom: 30px;
+				border-bottom: 1px solid #CCCCCC;
+				position: relative;
+			}
+			
+			.hot-product .hot-product-title h3,
+			.new-product .new-product-title h3 {
+				color: #444444;
+				font-size: 20px;
+				position: relative;
+				margin-bottom: 0px;
+				padding: 0 0 15px;
+			}
+			
+			.hot-product .hot-product-title h3:before,
+			.new-product .new-product-title h3:before {
+				content: '';
+				width: 70px;
+				height: 2px;
+				background-color: blue;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+			/**********左播右播***********/
+			.owl-carousel .owl-nav.disabled{
+			   display: block;
+			}
+			.owl-carousel .owl-nav div{
+			  position: absolute;
+			  top:-66px;
+			  right: 50px;
+			  width: 27px;
+			  line-height: 27px;
+			  border-radius: 50%;
+			  border: 1px solid #DDDDDD;
+			  color: #444444;
+			  text-align: center;
+			  transition: .3s;
+			}
+			.owl-carousel .owl-nav div:hover{
+			   background: #4497e1;
+			   border: none;
+			}
+			.owl-carousel .owl-nav div.owl-next{
+			    right: 14px;
+			}
+			/***********新品上线轮播样式***************/
+			.new-product-banner.owl-carousel.owl-loaded.owl-drag,
+			.owl-carousel .owl-stage-outer{
+			    border:1px solid white;
+			}
+			.hot-product .container .row .hot-product-banner .owl-item{
+				position: relative;
+			}
+			.hot-product .container .row .hot-product-banner .owl-item .hot-product-banner-content{
+				position:absolute;
+				top:50px;
+				left: 25px;
+			}
+			.new-product .container .row .new-product-banner .owl-item {
+				width: 270px;
+				border: 1px solid darkgray;
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item img {
+				padding-left: 10px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content {
+				padding-left: 8px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .fa.fa-star {
+				color: #3785e9ed;
+				font-size: 20px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .fa.fa-star-o {
+				font-size: 20px;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .product-money {
+				color: #f70726fa;
+			}
+			
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .buyButton button{
+				display: inline-block;
+				width: 100px;
+				line-height: 35px;
+				margin-bottom: 10px;
+				border: 1px solid darkgray;
+				margin-left: 70px;
+				border-radius: 100px;
+				background-color: #FFFFFF;
+				cursor: pointer;
+				outline: none;
+			}
+			.new-product .container .row .new-product-banner .owl-item .new-product-banner-content .buyButton button:hover{
+				background: #558fd9;
+				color: #FFFFFF;
+			}
+			/**********
+			 * 联系我们
+			 */
+			
+			.contact-area {
+				background-color: #F7F7F7;
+				margin-bottom: 45px;
+				margin-top: 90px;
+				padding: 90px 0 37px;
+			}
+			
+			.contact-area .pe-call,
+			.contact-area .pe-order,
+			.contact-area .pe-timer {
+				display: flex;
+				position: relative;
+				justify-content: center;
+			}
+			
+			.pe-call-icon {
+				margin-right: 16px;
+			}
+			
+			.pe-call-icon i {
+				color: blue;
+				font-size: 38px;
+				line-height: 38px;
+			}
+			
+			.pe-call-content h3,
+			.pe-call-content p {
+				font-size: 14px;
+				font-weight: 400;
+				color: black;
+				margin-top: 4px;
+			}
+			
+			.pe-call-content p {
+				color: #444444;
+			}
+			
+			.pe-call:before,
+			.pe-order:before {
+				content: '';
+				position: absolute;
+				width: 1px;
+				height: 50px;
+				background: #DDDDDD;
+				right: -16px;
+			}
+			
+			.pe-call,
+			.pe-timer,
+			.pe-order {
+				transition: .5s;
+			}
+			
+			.pe-call:hover,
+			.pe-timer:hover,
+			.pe-order:hover {
+				transform: scaleY(1.1);
+			}
+			/************
+			 * footer
+			 */
+			
+			.footer-area .footer-bottom {
+				text-align: center;
+				padding: 39px 0 45px;
+			}
+			
+			.footer-area .footer-bottom ul li {
+				display: inline-block;
+			}
+			
+			.footer-area .footer-bottom ul li a {
+				font-size: 14px;
+				font-weight: 300;
+				line-height: 29px;
+				color: #000000;
+				margin: 0 5px;
+				display: inline-block;
+			}
+			
+			.footer-area .footer-bottom ul li a:hover {
+				color: blue;
+			}
+			
+			.footer-area .footer-bottom ul li:nth-child(n+1):nth-child(-n+29) a:after {
+				content: '';
+				border-left: 1px solid #555555;
+				margin-left: 10px;
+			}
+			
+			.footer-area .copyright-area {
+				background: blue;
+				padding: 18px 0;
+			}
+			
+			.footer-area .copyright-area p,
+			.footer-area .copyright-area a {
+				text-align: center;
+				color: #FFFFFF;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 23px;
+			}
+			/**********商品详情****************/
+			.hideArea{
+			position:absolute;
+			display: none;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			left: 0;
+			top: 0;
+			background-color: darkgray;
+			opacity: 0.8;
+		}
+		 .product-detail {  
+			 z-index: 101;          
+			  background-color: white;          
+			  border: solid 1px #ccc;        
+			  position: absolute;          
+			  display: none;         
+			  width: 1000px;        
+			  height: 600px;
+              padding: 5px;       
+              box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+              border-radius: 10px;
+        }
+       .product-detail .container{
+        	margin-top: 50px;
+        	position: relative;
+        }
+        .out{
+        	position:absolute;
+        	left: 960px;
+        	top: -50px;
+        	font-size: 20px;
+        	display: inline-block;
+        	min-width: 30px;
+        	min-height: 30px;
+        	text-align: center;
+        	border: none;
+        	background-color: #ebe8e8;
+        	border-radius: 100%;
+        	outline: none;
+        }
+     	.product-detail .container .row .large-image{
+     		text-align: center;
+     		width: 380px;
+     		height: 380px;
+     		border: 1px solid lightgray;
+     		margin-bottom: 10px;
+     	}
+     	.product-detail .container .row .large-image img{
+     		width:250px;
+     		height: 250px;
+     	}
+     	.product-detail .container .row .small-image ul>li{
+     		margin-left: 4px;
+     		display: inline-block;
+     		text-decoration: none;
+     		width: 120px;
+     		height: 120px;
+     		border: 1px solid lightgray;
+     	}
+     	.product-detail .container .row .small-image ul>li:hover{
+     		border: 1px solid red;
+     	}
+     	.product-detail .container .row .product-price{
+     		color: red;
+     	}
+     	.product-detail .container .row h3{
+     		font-weight: bold;
+     	}
+     	.product-detail .container .row .size-area .size-content a{
+     		text-decoration: none;
+     		display: inline-block;
+     		width: 30px;
+     		line-height: 30px;
+     		font-size: 15px;
+     		text-align: center;
+     		background: #FFFFFF;
+     		border-radius: 100%;
+     	    border: 1px solid lightgray;
+     	    margin: 5px 10px 20px 10px;
+     	}
+     	.product-detail .container .row .size-area .size-content a:hover{
+     		background: #5495e9ed;
+     		color:#FFFFFF;
+     		border: none;
+     	}
+     	.product-detail .container .row .cart-area input,
+     	.product-detail .container .row .cart-area button{
+     		display: inline-block;
+     		line-height: 35px;
+     		text-align: center;
+     		border-radius: 5px;
+     		outline: none;
+     	}
+     	.product-detail .container .row .cart-area input{
+     		width: 80px;
+     		background: #FFFFFF;
+     		border: 1px solid lightgray;
+     		margin:0 30 20 10px;
+     	}
+     	.product-detail .container .row .cart-area button{
+     		margin: 10px;
+     		color: #FFFFFF;
+     		width: 100px;
+     		background: #0B0B0B;
+     		border: 1px solid #0B0B0B;
+     	}
+     	.product-detail .container .row .cart-area button:hover{
+     		background: gray;
+     		border: 1px solid gray;
+     	}
+     	.product-detail .container .row .des-information{
+     		margin-top: 30px;
+     		font-size: 18px;
+     	}
+		</style>
+	</head>
+
+	<body>
+<div class="header-area">
+	<div class="header-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="top-right text-right">
+						<ul>
+							<li class="account">
+								<a href="javascript:;">账户<i class="fa fa-angle-down"></i></a>
+								<ul class="dropdown-links">
+									<li>
+										<a href="javascript:;">购物清单</a>
+									</li>
+									<li>
+										<a href="javascript:;">账户</a>
+									</li>
+									<li>
+										<a href="javascript:;">设置</a>
+									</li>
+									<li>
+										<a href="javascript:;">产品</a>
+									</li>
+								</ul>
+							</li>
+							<li class="money" onclick="account(this)">
+								<a href="javascript:;">人民币<i class="fa fa-angle-down"></i></a>
+							</li>
+							<li class="language">
+								<a href="javascript:;">中文<i class="fa fa-angle-down"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="header-middle">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-4">
+				<div class="logo">
+					<a href="">
+						<img src="img/img/logo.png" />
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-5">
+				<div class="search-bar">
+					<form action="" method="get">
+						<input type="text" placeholder="在这里搜索商品..." />
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<div class="shop-car">
+					<a href="javascript:;"><i class="fa fa-shopping-cart"></i>购物车</a>
+					<span class="shop-num">5</span>
+				</div>
+				<div class="product-list">
+					<div class="container">
+						<div class="row">
+							<div class="all">
+								<div class="thread">
+									<span>商品图片</span>
+									<span class="product-info">商品信息</span>
+									<span>商品价格</span>
+									<span>商品数量</span>
+								</div>
+								<div class="content">
+									<div class="image-area">
+										<a href="">
+											<img src="img/img/cart5.jpg" alt="" />
+										</a>
+									</div>
+									<div class="des-area">
+										<span>Cuisinart DCC-3200</span>
+									</div>
+									<div class="price-area">
+										<span>￥92.6</span>
+									</div>
+									<div class="number-area">
+										<a href="javascript:;"><input type="number" value="1" max="100" min="0"/></a>
+									</div>
+									<div class="operate-area">
+										<a href="javascript:;"><i class="fa fa-trash"></i></a>
+									</div>
+								</div>
+								<div class="content">
+									<div class="image-area">
+										<a href="">
+											<img src="img/img/cart5.jpg" alt="" />
+										</a>
+									</div>
+									<div class="des-area">
+										<span>Cuisinart DCC-3200</span>
+									</div>
+									<div class="price-area">
+										<span>￥92.6</span>
+									</div>
+									<div class="number-area">
+										<a href="javascript:;"><input type="number" value="1" max="100" min="0"/></a>
+									</div>
+									<div class="operate-area">
+										<a href="javascript:;"><i class="fa fa-trash"></i></a>
+									</div>
+								</div>
+								<div class="content">
+									<div class="image-area">
+										<a href="">
+											<img src="img/img/cart5.jpg" alt="" />
+										</a>
+									</div>
+									<div class="des-area">
+										<span>Cuisinart DCC-3200</span>
+									</div>
+									<div class="price-area">
+										<span>￥92.6</span>
+									</div>
+									<div class="number-area">
+										<a href="javascript:;"><input type="number" value="1" max="100" min="0"/></a>
+									</div>
+									<div class="operate-area">
+										<a href="javascript:;"><i class="fa fa-trash"></i></a>
+									</div>
+								</div>
+								<div class="content">
+									<div class="image-area">
+										<a href="">
+											<img src="img/img/cart5.jpg" alt="" />
+										</a>
+									</div>
+									<div class="des-area">
+										<span>Cuisinart DCC-3200</span>
+									</div>
+									<div class="price-area">
+										<span>￥92.6</span>
+									</div>
+									<div class="number-area">
+										<a href="javascript:;"><input type="number" value="1" max="100" min="0"/></a>
+									</div>
+									<div class="operate-area">
+										<a href="javascript:;"><i class="fa fa-trash"></i></a>
+									</div>
+								</div>
+								<div class="content">
+									<div class="image-area">
+										<a href="">
+											<img src="img/img/cart5.jpg" alt="" />
+										</a>
+									</div>
+									<div class="des-area">
+										<span>Cuisinart DCC-3200</span>
+									</div>
+									<div class="price-area">
+										<span>￥92.6</span>
+									</div>
+									<div class="number-area">
+										<a href="javascript:;"><input type="number" value="1" max="100" min="0"/></a>
+									</div>
+									<div class="operate-area">
+										<a href="javascript:;"><i class="fa fa-trash"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="button-group">
+								<button class="totalPrice">总价￥99.0</button>
+								<button class="buy">购买</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+			<div class="header-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3">
+							<div class="categories-menu">
+								<div class="categories-title">
+									<h2><i class="fa fa-list"></i>主题市场<i class="fa fa-angle-down"></i></h2>
+								</div>
+								<div class="category-menu-inner">
+									<ul>
+										<li>
+											<a href="javascript:;">女装&男装&内衣<i class="fa fa-angle-right"></i></a>
+											<ul class="category-menu-inner-sub">
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="javascript:;">鞋靴&箱包&配件<i class="fa fa-angle-right"></i></a>
+											<ul class="category-menu-inner-sub">
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="javascript:;">玩具&孕产&用品<i class="fa fa-angle-right"></i></a>
+											<ul class="category-menu-inner-sub">
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+												<li>
+													<a href="javascript:;">女装</a>
+													<ul>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+														<li><a href="javascript:;"></a>女装</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li><a href="javascript:;">家电&数码&手机</a></li>
+										<li><a href="javascript:;">珠宝&眼镜&手表</a></li>
+										<li><a href="javascript:;">运动&户外&乐器</a></li>
+										<li><a href="javascript:;">游戏&动漫&影视</a></li>
+										<li><a href="javascript:;">美食&生鲜&零食</a></li>
+										<li><a href="javascript:;">工具&装修&建材</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="main-menu">
+								<ul>
+									<li>
+										<a href="javascript:;">主页<i class="fa fa-angle-down"></i></a>
+										<ul class="main-page-sub">
+											<li><a href="javascript:;">天猫超市</a></li>
+											<li><a href="javascript:;">天猫</a></li>
+											<li><a href="javascript:;">天猫</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:;">超市<i class="fa fa-angle-down"></i></a>
+										<ul class="store-sub">
+											<li>
+												<a href="javascript:;">进口商品</a>
+												<ul>
+													<li><a href="javascript:;">牛奶</a></li>
+													<li><a href="javascript:;">零食</a></li>
+													<li><a href="javascript:;">饼干</a></li>
+													<li><a href="javascript:;">速食</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="javascript:;">食品饮料</a>
+												<ul>
+													<li><a href="javascript:;">糖果</a></li>
+													<li><a href="javascript:;">薯片</a></li>
+													<li><a href="javascript:;">坚果</a></li>
+													<li><a href="javascript:;">牛奶</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="javascript:;">食品粮油</a>
+												<ul>
+													<li><a href="javascript:;">油</a></li>
+													<li><a href="javascript:;">大米</a></li>
+													<li><a href="javascript:;">调料</a></li>
+													<li><a href="javascript:;">方便面</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:;">电器城<i class="fa fa-angle-down"></i></a>
+										<ul class="store-sub">
+											<li>
+												<a href="javascript:;">进口商品</a>
+												<ul>
+													<li><a href="javascript:;">牛奶</a></li>
+													<li><a href="javascript:;">零食</a></li>
+													<li><a href="javascript:;">饼干</a></li>
+													<li><a href="javascript:;">速食</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="javascript:;">食品饮料</a>
+												<ul>
+													<li><a href="javascript:;">糖果</a></li>
+													<li><a href="javascript:;">薯片</a></li>
+													<li><a href="javascript:;">坚果</a></li>
+													<li><a href="javascript:;">牛奶</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="javascript:;">食品粮油</a>
+												<ul>
+													<li><a href="javascript:;">油</a></li>
+													<li><a href="javascript:;">大米</a></li>
+													<li><a href="javascript:;">调料</a></li>
+													<li><a href="javascript:;">方便面</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									</li>
+									<li>
+										<a href="javascript:;">联系我们<i class="fa fa-angle-down"></i></a>
+
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="slider-area">
+			<div class="slider-stage-outer">
+				<div class="slider-one"></div>
+				<div class="slider-two"></div>
+			</div>
+			<div class="slider-nav">
+				<div class="dots">
+					<div class="nav-dot active"></div>
+					<div class="nav-dot"></div>
+				</div>
+			</div>
+			<a href="javascript:;" rel="external nofollow" class="arrow arrow_left">
+				< </a>
+					<a href="javascript:;" rel="external nofollow" class="arrow arrow_right">
+						>
+					</a>
+		</div>
+		<div class="ad-area">
+			<div class="container">
+				<div class="ad-content">
+					<h2>广告招租</h2>
+				</div>
+			</div>
+		</div>
+		<div class="hot-product">
+			<div class="container">
+				<div class="row">
+					<div class="hot-product-title">
+						<h3>热卖商品</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="hot-product-banner owl-carousel">
+						<div class="owl-item">
+							<img src="img/img/banner1.png" alt="" />
+							<div class="hot-product-banner-content">
+								<h3>游戏机</h3>
+							</div>
+						</div>
+						<div class="owl-item">
+							<img src="img/img/banner2.png" alt="" />
+							<div class="hot-product-banner-content">
+								<h3>耳机</h3>
+							</div>
+						</div>
+						<div class="owl-item">
+							<img src="img/img/banner3.png" alt="" />
+							<div class="hot-product-banner-content">
+								<h3>相机</h3>
+							</div>
+						</div>
+						<div class="owl-item">
+							<img src="img/img/banner4.png" alt="" />
+							<div class="hot-product-banner-content">
+								<h3>笔记本电脑</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--新品上线-->
+		<div class="new-product">
+			<div class="container">
+				<div class="row">
+					<div class="new-product-title">
+						<h3>新品上线</h3>
+                       <!-- <span class="arrow-left"><</span>
+						<span class="arrow-right">></span>-->
+					</div>
+				</div>
+				<div class="row" style="border: none;">
+					<div class="new-product-banner owl-carousel" style="border:none">
+						<div class="owl-item">
+							<img src="img/img/product8.jpg" alt="" />
+							<div class="new-product-banner-content">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o"></i>
+								<h4>Cuisinart DCC-3200</h4>
+								<h4 class="product-money">￥212.8</h4>
+								<div class="buyButton">
+									<button class="btnshow">选购</button>
+								</div>
+
+							</div>
+						</div>
+						<div class="owl-item">
+							<img src="img/img/product9.jpg" alt="" />
+							<div class="new-product-banner-content">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+								<h4>Cuisinart DCC-3200</h4>
+								<h4 class="product-money">￥212.8</h4>
+								<div class="buyButton">
+									<button class="btnshow">选购</button>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item">
+							<img src="img/img/product10.jpg" alt="" />
+							<div class="new-product-banner-content">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o"></i>
+								<h4>Cuisinart DCC-3200</h4>
+								<h4 class="product-money">￥212.8</h4>
+								<div class="buyButton">
+									<button class="btnshow">选购</button>
+								</div>
+							</div>
+						</div>
+						<div class="owl-item">
+							<img src="img/img/product11.jpg" alt="" />
+							<div class="new-product-banner-content">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o"></i>
+								<i class="fa fa-star-o"></i>
+								<h4>Cuisinart DCC-3200</h4>
+								<h4 class="product-money">￥212.8</h4>
+								<div class="buyButton">
+									<button class="btnshow">选购</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contact-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="pe-call">
+							<div class="pe-call-icon"><i class=" iconfont icon-group48"></i></div>
+							<div class="pe-call-content">
+								<h3>(0746)1234567</h3>
+								<p>支持免费在线服务</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="pe-order">
+							<div class="pe-call-icon"><i class="iconfont icon-youxiang"></i></div>
+							<div class="pe-call-content">
+								<h3>tyy@163.com</h3>
+								<p>订单支持</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="pe-timer">
+							<div class="pe-call-icon"><i class="iconfont icon-timer"></i></div>
+							<div class="pe-call-content">
+								<h3>周一-周五/9:00-18:00</h3>
+								<p>工作日/小时</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer部分 -->
+		<div class="footer-area">
+			<div class="container">
+				<div class="footer-bottom">
+					<div class="row">
+						<div class="col-md-12">
+							<ul>
+								<li><a href="">网上购物</a></li>
+								<li><a href="">促销</a></li>
+								<li><a href="">我的订单</a></li>
+								<li><a href="">客户服务</a></li>
+								<li><a href="">网上购物</a></li>
+								<li><a href="">服务支持</a></li>
+								<li><a href="">退款</a></li>
+								<li><a href="">结账</a></li>
+								<li><a href="">条款</a></li>
+								<li><a href="">运费</a></li>
+								<li><a href="">网上购物</a></li>
+								<li><a href="">促销</a></li>
+								<li><a href="">我的订单</a></li>
+								<li><a href="">客户服务</a></li>
+								<li><a href="">网上购物</a></li>
+								<li><a href="">服务支持</a></li>
+								<li><a href="">退款</a></li>
+								<li><a href="">结账</a></li>
+								<li><a href="">条款</a></li>
+								<li><a href="">运费</a></li>
+								<li><a href="">网上购物</a></li>
+								<li><a href="">促销</a></li>
+								<li><a href="">我的订单</a></li>
+								<li><a href="">客户服务</a></li>
+								<li><a href="">网上购物</a></li>
+								<li><a href="">服务支持</a></li>
+								<li><a href="">退款</a></li>
+								<li><a href="">结账</a></li>
+								<li><a href="">条款</a></li>
+								<li><a href="">运费</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="copyright-content">
+								<p>
+									"Copyright@2019"
+									<a href="">tyy@163.com</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-----商品详情------>
+	<div class="hideArea"></div>
+	<div class="product-detail">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 col-md-5">
+					<div class="large-image">
+						<img src="img/img/product11.jpg" />
+					</div>
+					<div class="small-image">
+						<ul>
+							<li>
+								<a href="javascript:;"><img src="img/img/cart5.jpg" /></a>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/img/cart6.jpg" /></a>
+							</li>
+							<li>
+								<a href="javascript:;"><img src="img/img/cart7.jpg" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5">
+					<div class="product-info">
+						<h3>产品信息</h3>
+					</div>
+					<div class="product-price">
+						<h3>￥28.5</h3>
+					</div>
+					<div class="product-des">
+						<h>@RGFASFFSFFAFAFGSAFGASGSGASGFAGF</h>
+					</div>
+					<div class="size-area">
+						<div class="size-title">
+							<h3>尺寸信息</h3>
+						</div>
+						<div class="size-content">
+							<a href="javascript:;">S</a>
+							<a href="javascript:;">L</a>
+							<a href="javascript:;">ML</a>
+							<a href="javascript:;">XL</a>
+							<a href="javascript:;">XXL</a>
+						</div>
+					</div>
+					<div class="cart-area">
+						<input type="number" value="1" min="0" max="100"/>
+						<button>添加到购物车</button>
+					</div>
+					<div class="des-information">
+						<p>
+							Lorem ipsum dolo sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amel.orem ipsum dolor sit ametLorem ipsum dolor sit ametconsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim venIam,
+
+						</p>
+					</div>
+				</div>
+			</div>
+			<button class="out">
+				x
+			</button>
+		</div>
+	</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/plugins.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/app.js" ></script>
+	</body>
+
+</html>
